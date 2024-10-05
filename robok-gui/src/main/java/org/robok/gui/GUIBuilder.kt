@@ -98,6 +98,8 @@ class GUIBuilder (
     }
     
     fun closeBlock() {
+  //  if (debugLogs) stringBuilder.newLineLn("<!-- closeBlock adicionado\nultima tag de fechamento é: ->" + closingTagLayoutList.last())
+
     if (closingTagLayoutList.isNotEmpty()) {
     
         val tags = closingTagLayoutList.last().split(":")
@@ -112,7 +114,7 @@ class GUIBuilder (
 
             stringBuilder.newLineLn("${indent}$closingTagXml")
 
-            closingTagLayoutList.removeAt(closingTagLayoutList.size - 1)
+            closingTagLayoutList.removeAt(closingTagLayoutList.lastIndex)
         } else {
             stringBuilder.newLineLn("Erro: Formato inválido de tag de fechamento.")
         }
